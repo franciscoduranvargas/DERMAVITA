@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Derma-Vita | Renace tu piel, renace tu vida</title>
+
+  <!-- Tipografías Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --blanco: #ffffffa4;
+      --gris-perla: #e0e0e091;
+      --azul-suave: #a4c3d29f;
+      --rosa-piel: #f4d3d379;
+      --verde-menta: #cfe9dc98;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--blanco);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* HEADER FIJO */
+    header {
+      background: var(--azul-suave);
+      color: var(--blanco);
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: var(--blanco);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover { color: var(--azul-suave); }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 0;
+      position: relative;
+      color: var(--blanco);
+    }
+
+    .hero img {
+      width: 100%;
+      height: 75vh;
+      object-fit: cover;
+      filter: brightness(0.6);
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 90%;
+    }
+
+    .hero h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 46px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+    }
+
+    .btn {
+      background: var(--verde-menta);
+      color: #333;
+      padding: 14px 36px;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .btn:hover { background: var(--rosa-piel); transform: translateY(-2px); }
+
+    /* SECCIONES */
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 32px;
+      margin-bottom: 25px;
+    }
+
+    /* BENEFICIOS */
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .benefit-card {
+      background: var(--blanco);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+
+    .benefit-img {
+      max-width: 600px;
+      margin: 30px auto;
+      display: block;
+      border-radius: 15px;
+    }
+
+    /* PRODUCTOS */
+    .productos img {
+      width: 100%;
+      max-width: 800px;
+      display: block;
+      margin: 30px auto;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    /* TESTIMONIOS */
+    .testimonial-section {
+      background: var(--gris-perla) url('https://images.unsplash.com/photo-1600180758895-2efc2a3e45da') no-repeat center/cover;
+      background-blend-mode: overlay;
+      padding: 80px 20px;
+    }
+
+    .testimonial {
+      max-width: 600px;
+      margin: 20px auto;
+      background: var(--blanco);
+      padding: 30px;
+      border-radius: 15px;
+      font-style: italic;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    /* CANALES */
+    .canales-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .canal {
+      background: var(--blanco);
+      padding: 30px 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .canal:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+    }
+
+    .canal i {
+      font-size: 40px;
+      color: var(--azul-suave);
+      margin-bottom: 15px;
+    }
+
+    .canal h4 {
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .canal p { font-size: 15px; color: #555; }
+
+    /* FORMULARIO */
+    form {
+      max-width: 500px;
+      margin: 50px auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    form input, form textarea {
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid var(--gris-perla);
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    form input:focus, form textarea:focus {
+      border-color: var(--azul-suave);
+      outline: none;
+    }
+
+    form button {
+      background: var(--azul-suave);
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    form button:hover { background: var(--rosa-piel); color: #000; }
+
+    /* FOOTER */
+    footer {
+      background: var(--azul-suave);
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 60px;
+    }
+
+    footer a { color: var(--verde-menta); margin: 0 10px; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      text-decoration: none;
+      z-index: 1000;
+    }
+
+    .whatsapp:hover { background-color: #128C7E; transform: scale(1.1); }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Derma-Vita</h1>
+    <nav>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- HERO CON IMAGEN -->
+  <section class="hero">
+    <img src="https://media.glamour.mx/photos/619066752d97bd4c522a5843/master/w_1600%2Cc_limit/236670.jpg" alt="Aplicando protector solar">
+    <div class="hero-text">
+      <h2>Renace tu piel, renace tu vida</h2>
+      <p>Bloqueadores solares clínicos que protegen, cuidan y dan esperanza a tu piel.</p>
+      <button class="btn" href="#productos" >Comprar ahora</button>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="section" id="beneficios">
+    <h3>Beneficios de Derma-Vita</h3>
+    <img class="benefit-img" src="https://pbs.twimg.com/media/E9KJFH3VcAkFcZM.jpg" alt="Infografía prevención solar">
+    <div class="benefits">
+      <div class="benefit-card"> 
+        <h4>Protección científica</h4>
+        <p>Fórmula avalada por dermatólogos, bloquea UVA y UVB.</p>
+      </div>
+      <div class="benefit-card">
+        <h4>Prevención y esperanza</h4>
+        <p>Reduce riesgos de cáncer de piel y promueve regeneración.</p>
+      </div>
+      <div class="benefit-card">
+        <h4>Suavidad y empatía</h4>
+        <p>Diseñado para pieles sensibles en tratamiento oncológico.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section class="section productos" id="productos">
+    <h3>Nuestra línea de Productos </h3>
+    <img src="https://lh6.googleusercontent.com/HR1lv4Om-QSL_32e-F9HJAPt6K-8OjWMp5T9RsUOahesMHWmdKEtFrqIusCydjKK_lrIXB6gbE60HJZQYw71bRFBzRdTXMW0ixKTSKX1DsdobjgPi1dFsaTE9nxPPOgCUL2p4ATjp1BBENiixy7RIH7Hlp-HBEywyEcMK16lK-r06LSQIGhOWQ=w1280" alt="Productos Derma-Vita">
+    <p>Descubre nuestros bloqueadores solares clínicos diseñados para pieles sensibles y en tratamiento.</p>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="testimonial-section" id="testimonios">
+    <h3>Testimonios</h3>
+    <div class="testimonial">“Mi dermatólogo me recomendó Derma-Vita. Ahora me siento protegida y tranquila al salir al sol.” – Laura M.</div>
+    <div class="testimonial">“Después de mi tratamiento de melanoma, este bloqueador ha sido mi aliado diario.” – Carlos G.</div>
+  </section>
+
+  <!-- CANALES -->
+  <section class="section canales">
+    <h3>Nuestros canales de atención</h3>
+    <div class="canales-grid">
+      <div class="canal">
+        <i class="fab fa-facebook"></i>
+        <h4>Redes sociales</h4>
+        <p>Encuéntranos en Facebook e Instagram para consejos y novedades.</p>
+      </div>
+      <div class="canal">
+        <i class="fas fa-phone"></i>
+        <h4>Atención telefónica</h4>
+        <p>Llámanos al <strong>800‑DERMAVITA</strong> para soporte y recomendaciones.</p>
+      </div>
+      <div class="canal">
+        <i class="fas fa-store"></i>
+        <h4>Tiendas físicas</h4>
+        <p>Visítanos en distribuidores y farmacias autorizadas.</p>
+      </div>
+      <div class="canal">
+        <i class="fas fa-bullhorn"></i>
+        <h4>Anuncios y banners</h4>
+        <p>Mantente atento a nuestras promociones y campañas de prevención solar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section" id="contacto">
+    <h3>Contáctanos</h3>
+    <form>
+      <input type="text" placeholder="Nombre completo" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <textarea placeholder="Mensaje" rows="4" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Derma-Vita | Todos los derechos reservados</p>
+    <div>
+      <a href="#">Facebook</a> | 
+      <a href="#">Instagram</a> | 
+      <a href="#">WhatsApp</a>
+    </div>
+  </footer>
+
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/5210000000000" class="whatsapp" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+</body>
+</html>
